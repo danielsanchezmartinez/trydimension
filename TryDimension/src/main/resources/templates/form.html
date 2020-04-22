@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="es">
+    <head>
+        <title>TryDimension Website - Contact</title>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/homepage.css">
+        <link rel="stylesheet" type="text/css" href="css/form.css">
+        <!-- CSS Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- JS & JQUERY Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!-- Cabecera -->
+        <header class="row w-100 mx-0">
+            <!-- Título y Subtítulo -->
+            <div class="title col-md-8 pt-4 text-center">
+                <h1>TryDimension</h1>
+                <h2 class="pt-3 pb-3">Ahora la tecnología la creas tú</h2>
+            </div>
+            <!-- Perfil de usuario con imágenes -->
+            <div class="user col-md-4 text-center">
+                <img class="profile-image w-25 rounded-circle mt-3" src="test-images/profile-picture.jpg">
+                <p class="username font-weight-bold mt-3"><span sec:authentication="name">USERNAME</span></p>
+            </div>
+        </header>
+        <!-- Barra de Navegación -->
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler text-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"><img src="icons/menu.png" class="menu-icon w-100"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="menu nav navbar-nav text-center font-weight-bold container">
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" th:href="@{/trydimensionhome}">Inicio</a></li>
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" href="shop.html">Tienda</a></li>
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" th:href="@{/trydimensionform}">Contacto</a></li>
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" href="#">Aportaciones</a></li>
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" th:href="@{/trydimensionclients}">Clientes</a></li>
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" href="#">Configuración</a></li>
+              </ul>
+            </div>
+        </nav>
+        <!-- Formulario de Contacto -->
+        <form class="form col-md-10 col-lg-8 mx-auto mt-5" th:action="@{/trydimensionform/addUser}" th:object="${unUsuario}" method="post">
+
+            <h3 class="text-center mb-4 mb-lg-2">Contacta con la Empresa</h3>
+
+            <div class="form-group"> <!-- Nombre -->
+                <label for="nombre-label" class="control-label"><img src="icons/user.png" class="icon mr-2">Nombre:</label>
+                <input type="text" th:field="*{nombre}" class="form-control" id="nombre" name="full_name" placeholder="Nombre...">
+            </div>    
+        
+            <div class="form-group"> <!-- Apellido -->
+                <label for="apellido-label" class="control-label"><img src="icons/user.png" class="icon mr-2">Apellido:</label>
+                <input type="text" th:field="*{apellido}" class="form-control" id="apellido" name="apellido" placeholder="Apellido...">
+            </div>                    
+                                    
+            <div class="form-group"> <!-- Email -->
+                <label for="email-label" class="control-label"><img src="icons/mail.png" class="icon mr-2">Correo Electrónico:</label>
+                <input type="email" th:field="*{correo}" class="form-control" id="correo" name="correo" placeholder="Correo Electrónico...">
+            </div>    
+        
+            <div class="form-group"> <!-- Teléfono -->
+                <label for="telefono-label" class="control-label"><img src="icons/phone.png" class="icon mr-2">Teléfono:</label>
+                <input type="number" th:field="*{telefono}" class="form-control" id="telefono" name="telefono" placeholder="Teléfono...">
+            </div> 
+            
+            <div class="form-group"> <!-- Usuario -->
+                <label for="usuario-label" class="control-label"><img src="icons/id.png" class="icon mr-2">Nombre de Usuario:</label>
+                <input type="text" th:field="*{username}" class="form-control" id="usuario" name="usuario" placeholder="Nombre de usuario...">
+            </div>
+            
+            <div class="form-group"> <!-- Contraseña -->
+                <label for="password-label" class="control-label"><img src="icons/lock.png" class="icon mr-2">Contraseña:</label>
+                <input type="password" th:field="*{password}" class="form-control" id="password" name="password" placeholder="Contraseña...">
+            </div>    
+            
+            <div class="form-group text-center"> <!-- Botón de Registro -->
+                <input type="submit" class="button btn btn-primary col-md-3 mt-3" value="REGISTRARSE"></input>
+            </div>     
+            
+        </form>
+        <!-- Pie de página -->
+        <footer>
+            <div class="footer-copyright text-center bg-dark text-white mt-5 p-2 fixed">
+              © 2020 Proyecto de Fin de Grado de Desarrollo de Aplicaciones Web
+            </div>
+        </footer>
+    </body>
+</html>

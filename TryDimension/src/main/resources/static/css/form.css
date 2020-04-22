@@ -1,0 +1,13 @@
+/* Estilos del formulario ****************************/
+.control-label{ /* Secciones del formulario (Título) */
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.icon{ /* Iconos del formulario */
+    width: 14%;
+}
+.button{ /* Botón de enviar formulario */
+    letter-spacing: 0.1em;
+    transition-duration: 1s;
+}

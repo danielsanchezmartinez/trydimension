@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="es">
+    <head>
+        <title>TryDimension Website - Index</title>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/homepage.css">
+        <!-- CSS Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- JS & JQUERY Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!-- Cabecera -->
+        <header class="row w-100 mx-0">
+            <!-- Título y Subtítulo -->
+            <div class="title-div col-md-8 pt-4 text-center">
+                <h1 class="title">TryDimension</h1>
+                <h2 class="pt-3 pb-3">Ahora la tecnología la creas tú</h2>
+            </div>
+            <!-- Perfil de usuario con imágenes -->
+            <div class="user col-md-4 text-center">
+                <img class="profile-image w-25 rounded-circle mt-3" src="test-images/profile-picture.jpg">
+                <p class="username font-weight-bold mt-3"><span sec:authentication="name">USERNAME</span></p>
+            </div>
+        </header>
+        <!-- Barra de Navegación -->
+        <nav class="navbar navbar-expand-lg">
+          <button class="navbar-toggler text-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><img src="icons/menu.png" class="menu-icon w-100"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="menu nav navbar-nav text-center font-weight-bold container">
+                <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" th:href="@{/trydimensionhome}">Inicio</a></li>
+                <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" href="shop.html">Tienda</a></li>
+                <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" th:href="@{/trydimensionform}">Contacto</a></li>
+                <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" href="#">Aportaciones</a></li>
+                <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" th:href="@{/trydimensionclients}">Clientes</a></li>
+                <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" href="#">Configuración</a></li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Página principal -->
+        <main class="container pt-5">
+            <!-- Tienda -->
+            <section class="shop row mb-5 d-flex justify-content-center text-justify">
+                <!-- Texto Tienda -->
+                <article class="text-shop mb-4 mb-lg-0 col-md-12 col-lg-6">
+                    <h3 class="text-center">Tu tienda más cercana</h3>
+                    <p>
+                      La impresión 3D, también conocida como fabricación por adición, es un proceso 
+                      por el que se crean objetos físicos mediante la colocación de materiales en capas 
+                      según un modelo digital. Todos los procesos de impresión 3D requieren que el software, 
+                      el hardware y los materiales trabajen de forma conjunta.
+                      La tecnología de impresión 3D se puede utilizar para crear cualquier cosa a partir 
+                      de prototipos, desde piezas sencillas a productos finales de un nivel técnico muy 
+                      elevado, como piezas de avión (inglés), construcciones respetuosas con el medio 
+                      ambiente, implantes médicos que se utilizan para salvar vidas y órganos humanos 
+                      artificiales que se crean con capas de células humanas.
+                    </p>
+                </article>
+                <!-- Imagen Tienda -->
+                <article class="image-shop col-12 col-lg-6">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="test-images/shop1.jpg" class="carousel-img d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                              <h5 class="text-body font-weight-bold">First slide label</h5>
+                              <p class="text-body font-weight-bold">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <img src="test-images/shop2.jpg" class="carousel-img d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                              <h5 class="text-body font-weight-bold">Second slide label</h5>
+                              <p class="text-body font-weight-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <img src="test-images/shop3.jpg" class="carousel-img d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                              <h5 class="text-body font-weight-bold">Third slide label</h5>
+                              <p class="text-body font-weight-bold">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                </article>
+            </section>
+            <hr class="mb-4">
+            <!-- Contacto -->
+            <section class="contact row mb-5 d-flex justify-content-center text-justify pt-2 pt-lg-4">
+                <!-- Texto Contacto -->
+                <article class="text-contact mb-4 mb-lg-0 col-12 col-lg-6">
+                    <h3 class="text-center">Contacta con la empresa</h3>
+                    <p>
+                      La fabricación de objetos mediante esta tecnología, son obtenidos a través de 
+                      la superposición de capas sucesivas de material de forma controlada.
+                      Con la fabricación aditiva / impresión 3D, nos permite obtener réplicas de objetos 
+                      previamente diseñados y que tengan unas especificaciones mecánicas lo más parecidas 
+                      a la realidad, además de su funcionalidad.
+                      La tecnología de fabricación aditiva / impresión 3D cada día esta evolucionando 
+                      para aplicarse en una amplia de sectores, entre ellos: Ingeniería, 
+                      Prototipado de piezas, Automoción, Arquitectura, Aeroespacial, Medicina, 
+                      Joyería o Educación. 
+                    </p>
+                </article>
+                <!-- Imagen Contacto -->
+                <article class="image-contact col-12 col-lg-6">
+                    <img src="test-images/contact.jpg" class="w-100">
+                </article>
+
+            </section>
+        </main>
+        <!-- Pie de página -->
+        <footer>
+          <div class="footer-copyright text-center bg-dark text-white mt-5 p-2 fixed">
+            © 2020 Proyecto de Fin de Grado de Desarrollo de Aplicaciones Web
+          </div>
+        </footer>
+    </body>
+</html>

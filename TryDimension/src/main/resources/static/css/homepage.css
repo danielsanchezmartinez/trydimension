@@ -1,0 +1,60 @@
+/* Fuentes importadas *******************************/
+@import url('https://fonts.googleapis.com/css?family=Black+Ops+One|Tomorrow&display=swap');
+/* Estilos generales ********************************/
+body{
+    background: linear-gradient(rgb(106, 104, 172), rgb(0, 255, 145));
+}
+/* Estilos de las letras (H) ************************/
+h2{ /* Subtítulo principal de la página */
+    letter-spacing: 0.05em;
+    font-family: 'Tomorrow', sans-serif;
+}
+h3{ /* Títulos de las secciones */
+    transition-duration: 0.5s;
+    font-family: 'Tomorrow', sans-serif;
+}
+/* Estilos de la cabecera ***************************/
+.title{ /* Título principal de la página */
+    font-family: 'Black Ops One';
+    font-size: 3.5em;
+    letter-spacing: 0.2em;
+    color: rgb(0, 255, 145);
+}
+.user{ /* Etiqueta del usuario */
+    background: url("../test-images/background-user.jpg") no-repeat;
+    background-size: cover;
+}
+.username{ /* Nombre del usuario */
+    color: white;
+}
+.profile-image{ /* Imagen de perfil del usuario */
+    border: 0.3em solid black;
+}
+/* Estilos de la barra de navegación *****************/
+.navbar{
+    background: linear-gradient(rgb(0, 255, 145), rgb(161, 161, 161));
+    border-top: 0.2em solid black;
+    border-bottom: 0.2em solid black;
+}
+.menu{ /* Barra de navegación */
+    font-size: 1.2em;
+    font-family: 'Tomorrow', sans-serif;
+}
+.nav-link{ /* Enlace */
+    transition-duration: 0.8s;
+    color: black;
+}
+
+
+/* EFECTOS *******************************************/
+h3:hover{ /* Letras h3 */
+    letter-spacing: 0.05em;
+    transition-duration: 0.5s;
+}
+
+.nav-link:hover{ /* Índice del menú */
+    background: rgb(119, 105, 245);
+    color: white;
+    border-radius: 1em;
+    transition-duration: 0.5s;
+}

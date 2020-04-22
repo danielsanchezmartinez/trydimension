@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="es">
+    <head>
+        <title>TryDimension Website - Client List</title>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/homepage.css">
+        <link rel="stylesheet" type="text/css" href="css/clients.css">
+        <!-- CSS Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- JS & JQUERY Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!-- Cabecera -->
+        <header class="row w-100 mx-0">
+            <!-- Título y Subtítulo -->
+            <div class="title col-md-8 pt-4 text-center">
+                <h1>TryDimension</h1>
+                <h2 class="pt-3 pb-3">Ahora la tecnología la creas tú</h2>
+            </div>
+            <!-- Perfil de usuario con imágenes -->
+            <div class="user col-md-4 text-center">
+                <img class="profile-image w-25 rounded-circle mt-3" src="test-images/profile-picture.jpg">
+                <p class="username font-weight-bold mt-3"><span sec:authentication="name">USERNAME</span></p>
+            </div>
+        </header>
+        <!-- Barra de Navegación -->
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler text-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"><img src="icons/menu.png" class="menu-icon w-100"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="menu nav navbar-nav text-center font-weight-bold container">
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" th:href="@{/trydimensionhome}">Inicio</a></li>
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" href="shop.html">Tienda</a></li>
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" th:href="@{/trydimensionform}">Contacto</a></li>
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" href="#">Aportaciones</a></li>
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" th:href="@{/trydimensionclients}">Clientes</a></li>
+                  <li class="menu-item nav-item"><a class="nav-link px-3 my-2 my-lg-0" href="#">Configuración</a></li>
+              </ul>
+            </div>
+        </nav>
+        <!-- Lista de clientes registrados -->
+        <h3 class="text-center my-4">Mi lista de Clientes</h3>
+        <table class="table table-striped table-dark text-center">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">CÓDIGO</th>
+                <th scope="col">USUARIO</th>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">APELLIDO</th>
+                <th scope="col">CORREO</th>
+                <th scope="col">TELÉFONO</th>
+                <th scope="col">---</th>
+                <th scope="col">---</th>
+                <th scope="col">---</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="unUsuario: ${listaUsuarios}">
+              	<th scope="row" th:text="${unUsuario.numero}"></th>
+              	<td th:text="${unUsuario.codigo}"></td>
+              	<td th:text="${unUsuario.username}"></td>
+              	<td th:text="${unUsuario.nombre}"></td>
+              	<td th:text="${unUsuario.apellido}"></td>
+              	<td th:text="${unUsuario.correo}"></td>
+              	<td th:text="${unUsuario.telefono}"></td>
+              	<td><button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modalVer" th:attr="data-target='#modalVer'+${unUsuario.username}">Ver Datos</button></td>
+			    <td><button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modalEditar" th:attr="data-target='#modalEditar'+${unUsuario.username}">Modificar</button></td>
+			    <td><button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#modalBorrar" th:attr="data-target='#modalBorrar'+${unUsuario.username}">Eliminar</button></td>
+			    
+			    	<!-- Modal para ver un usuario -->
+					<div class="modal" th:id="modalVer+${unUsuario.username}" tabindex="-1" role="dialog">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title text-dark">Ver datos del usuario: <span th:text="${unUsuario.username}"></span></h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-body">
+					      	<h5>Código: <span th:text="${unUsuario.codigo}"></span></h5>
+					      	<h5>Nombre: <span th:text="${unUsuario.nombre}"></span></h5>
+					      	<h5>Apellido: <span th:text="${unUsuario.apellido}"></span></h5>
+					      	<h5>Correo: <span th:text="${unUsuario.correo}"></span></h5>
+					      	<h5>Teléfono: <span th:text="${unUsuario.telefono}"></span></h5>
+					      </div>
+					      <div class="modal-footer">
+					        <a type="button" class="btn btn-success" data-dismiss="modal">Volver</a>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					
+					<!-- Modal para editar usuarios -->
+					<div class="modal" th:id="modalEditar+${unUsuario.username}" tabindex="-1" role="dialog">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title text-dark">Actualizar datos del usuario: <span th:text="${unUsuario.username}"></span></h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-body">
+						   <form action="#" th:action="@{/trydimensionclients/update/{id}(id=${unUsuario.username})}" th:object="${unUsuario}" method="post">
+							  <div class="form-row">
+							    <div class="form-group col-md-12">
+							      <label for="texto">Nombre: </label>
+							      <input type="text" th:field="*{nombre}"  placeholder="Nuevo nombre" class="form-control" id="nombre">
+							    </div>
+			                  </div>
+					        
+							  <div class="form-row">
+							    <div class="form-group col-md-12">
+							      <label for="texto">Apellido: </label>
+							      <input type="text" th:field="*{apellido}"  placeholder="Nuevo apellido" class="form-control" id="apellido">
+							    </div>
+			                  </div>
+			                  
+			                  <div class="form-row">
+							    <div class="form-group col-md-12">
+							      <label for="texto">Correo: </label>
+							      <input type="email" th:field="*{correo}"  placeholder="Nuevo correo" class="form-control" id="correo">
+							    </div>
+			                  </div>
+			                  <div class="form-row">
+							    <div class="form-group col-md-12">
+							      <label for="texto">Teléfono: </label>
+							      <input type="number" th:field="*{telefono}"  placeholder="Nuevo teléfono" class="form-control" id="telefono">
+							    </div>
+			                  </div>
+			                  <div class="modal-footer">
+					        	<a type="submit" class="btn btn-success" data-dismiss="modal">Actualizar</a>
+					      	  </div>
+			               </form>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+			    
+			        <!-- Modal para borrar usuarios -->
+					<div class="modal" th:id="modalBorrar+${unUsuario.username}" tabindex="-1" role="dialog">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title text-dark">¿Seguro que quieres borrar este usuario?  Usuario: <span th:text="${unUsuario.username}"></span></h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-footer">
+					        <a type="button" class="btn btn-danger" th:href="@{/trydimensionclients/delete/{id}(id=${unUsuario.username})}">Sí, eliminar</a>
+					        <a type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					
+              </tr>
+            </tbody>
+          </table>
+
+					
+
+          
+        <!-- Pie de página -->
+        <footer>
+            <div class="footer-copyright text-center bg-dark text-white mt-5 p-2 fixed">
+              © 2020 Proyecto de Fin de Grado de Desarrollo de Aplicaciones Web
+            </div>
+        </footer>
+    </body>
+</html>
